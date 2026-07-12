@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "Описание",
   "account.shares.table.visitors": "Посетители",
   "account.shares.table.downloads": "Изтегляния",
+  "account.shares.table.lastDownload": "Последно изтегляне",
+  "account.shares.table.lastDownloader": "Последен изтеглящ",
   "account.shares.table.expiresAt": "Изтича на",
   "account.shares.table.createdAt": "Създадено на",
   "account.shares.table.size": "Размер",

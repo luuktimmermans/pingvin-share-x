@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "Kirjeldus",
   "account.shares.table.visitors": "Külastajad",
   "account.shares.table.downloads": "Laadimised",
+  "account.shares.table.lastDownload": "Viimane allalaadimine",
+  "account.shares.table.lastDownloader": "Viimane allalaadija",
   "account.shares.table.expiresAt": "Aegub",
   "account.shares.table.createdAt": "Loodud",
   "account.shares.table.size": "Suurus",

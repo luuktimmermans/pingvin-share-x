@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "คำอธิบาย",
   "account.shares.table.visitors": "ผู้เข้าชม",
   "account.shares.table.downloads": "ดาวน์โหลด",
+  "account.shares.table.lastDownload": "ดาวน์โหลดล่าสุด",
+  "account.shares.table.lastDownloader": "ผู้ดาวน์โหลดล่าสุด",
   "account.shares.table.expiresAt": "Expires on",
   "account.shares.table.createdAt": "Created on",
   "account.shares.table.size": "ขนาด",

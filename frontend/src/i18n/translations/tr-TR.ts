@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "Açıklama",
   "account.shares.table.visitors": "Ziyaretçi Sayısı",
   "account.shares.table.downloads": "İndirme",
+  "account.shares.table.lastDownload": "Son indirme",
+  "account.shares.table.lastDownloader": "Son indiren",
   "account.shares.table.expiresAt": "Bitiş Tarihi",
   "account.shares.table.createdAt": "Oluşturulma Tarihi",
   "account.shares.table.size": "Boyut",

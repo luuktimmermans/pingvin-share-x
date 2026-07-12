@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "Popis",
   "account.shares.table.visitors": "Návštěvníci",
   "account.shares.table.downloads": "Stahování",
+  "account.shares.table.lastDownload": "Poslední stažení",
+  "account.shares.table.lastDownloader": "Poslední stahující",
   "account.shares.table.expiresAt": "Vyprší",
   "account.shares.table.createdAt": "Vytvořeno",
   "account.shares.table.size": "Velikost",

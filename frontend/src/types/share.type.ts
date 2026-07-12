@@ -3,14 +3,13 @@ import User from "./user.type";
 export type Share = {
   id: string;
   name?: string;
-  files: any;
+  files: ShareFile[];
   creator?: User;
   description?: string;
   expiration: Date;
   size: number;
   hasPassword: boolean;
 };
-
 export type CompletedShare = Share & {
   /**
    * undefined means is not reverse share
@@ -49,6 +48,8 @@ export type ShareMetaData = {
 export type MyShare = Omit<Share, "hasPassword"> & {
   views: number;
   downloads: number;
+  lastDownloadedAt?: Date | null;
+  lastDownloader?: string | null;
   createdAt: Date;
   security?: MyShareSecurity;
 };
@@ -70,4 +71,11 @@ export type ShareSecurity = {
 export type MyShareSecurity = {
   passwordProtected: boolean;
   maxViews?: number;
+};
+
+export type ShareFile = {
+  id: string;
+  name: string;
+  size: string;
+  downloads: number;
 };

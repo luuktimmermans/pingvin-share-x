@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "Опис",
   "account.shares.table.visitors": "Відвідувачів",
   "account.shares.table.downloads": "Завантаження",
+  "account.shares.table.lastDownload": "Останнє завантаження",
+  "account.shares.table.lastDownloader": "Останній завантажувач",
   "account.shares.table.expiresAt": "Діє до",
   "account.shares.table.createdAt": "Створено",
   "account.shares.table.size": "Розмір",

@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "توضیحات",
   "account.shares.table.visitors": "بازدیدکنندگان",
   "account.shares.table.downloads": "دانلودها",
+  "account.shares.table.lastDownload": "آخرین دانلود",
+  "account.shares.table.lastDownloader": "آخرین دانلودکننده",
   "account.shares.table.expiresAt": "منقضی می‌شود در",
   "account.shares.table.createdAt": "ایجاد شده در",
   "account.shares.table.size": "حجم",

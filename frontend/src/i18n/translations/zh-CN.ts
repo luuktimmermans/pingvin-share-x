@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "描述",
   "account.shares.table.visitors": "已访问",
   "account.shares.table.downloads": "下载",
+  "account.shares.table.lastDownload": "最近下载",
+  "account.shares.table.lastDownloader": "最近下载者",
   "account.shares.table.expiresAt": "过期于",
   "account.shares.table.createdAt": "创建于",
   "account.shares.table.size": "文件大小",

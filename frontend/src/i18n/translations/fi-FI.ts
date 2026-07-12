@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "Kuvaus",
   "account.shares.table.visitors": "Vierailijat",
   "account.shares.table.downloads": "Lataukset",
+  "account.shares.table.lastDownload": "Viimeisin lataus",
+  "account.shares.table.lastDownloader": "Viimeisin lataaja",
   "account.shares.table.expiresAt": "Expires on",
   "account.shares.table.createdAt": "Created on",
   "account.shares.table.size": "Koko",

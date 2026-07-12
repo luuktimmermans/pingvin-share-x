@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "Mô tả",
   "account.shares.table.visitors": "Lượng truy cập",
   "account.shares.table.downloads": "Tải xuống",
+  "account.shares.table.lastDownload": "Lần tải cuối",
+  "account.shares.table.lastDownloader": "Người tải cuối",
   "account.shares.table.expiresAt": "Expires on",
   "account.shares.table.createdAt": "Created on",
   "account.shares.table.size": "Dung lượng",

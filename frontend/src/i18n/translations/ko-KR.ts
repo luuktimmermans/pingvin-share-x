@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "설명",
   "account.shares.table.visitors": "방문자",
   "account.shares.table.downloads": "다운로드",
+  "account.shares.table.lastDownload": "마지막 다운로드",
+  "account.shares.table.lastDownloader": "마지막 다운로드한 사람",
   "account.shares.table.expiresAt": "Expires on",
   "account.shares.table.createdAt": "Created on",
   "account.shares.table.size": "크기",

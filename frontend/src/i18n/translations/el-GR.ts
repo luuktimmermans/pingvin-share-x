@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "Περιγραφή",
   "account.shares.table.visitors": "Επισκέπτες",
   "account.shares.table.downloads": "Λήψεις",
+  "account.shares.table.lastDownload": "Τελευταία λήψη",
+  "account.shares.table.lastDownloader": "Τελευταίος λήπτης",
   "account.shares.table.expiresAt": "Expires on",
   "account.shares.table.createdAt": "Created on",
   "account.shares.table.size": "Μέγεθος",

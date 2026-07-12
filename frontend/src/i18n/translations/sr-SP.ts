@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "Опис",
   "account.shares.table.visitors": "Посетиоци",
   "account.shares.table.downloads": "Преузимања",
+  "account.shares.table.lastDownload": "Последње преузимање",
+  "account.shares.table.lastDownloader": "Последњи преузималац",
   "account.shares.table.expiresAt": "Истиче",
   "account.shares.table.createdAt": "Направљено",
   "account.shares.table.size": "Величина",

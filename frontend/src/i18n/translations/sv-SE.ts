@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "Beskrivning",
   "account.shares.table.visitors": "Besökare",
   "account.shares.table.downloads": "Nedladdningar",
+  "account.shares.table.lastDownload": "Senaste nedladdning",
+  "account.shares.table.lastDownloader": "Senaste nedladdare",
   "account.shares.table.expiresAt": "Förfaller",
   "account.shares.table.createdAt": "Skapad",
   "account.shares.table.size": "Storlek",

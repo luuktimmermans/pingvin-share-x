@@ -103,19 +103,81 @@ export class FileService {
     return await storageService.getZip(shareId);
   }
 
-  async incrementDownloadCount(shareId: string): Promise<void> {
+  async registerDownload(
+    shareId: string,
+    options: {
+      fileId?: string;
+      recipientId?: string;
+      isZip?: boolean;
+    } = {},
+  ): Promise<void> {
     try {
-      await this.prisma.share.update({
-        where: { id: shareId },
-        data: {
-          downloads: {
-            increment: 1,
+      const { fileId, recipientId, isZip = false } = options;
+
+      let downloader = "Anonymous";
+
+      if (recipientId) {
+        const recipient = await this.prisma.shareRecipient.findFirst({
+          where: {
+            id: recipientId,
+            shareId,
           },
-        },
+          select: {
+            email: true,
+          },
+        });
+
+        if (recipient?.email) {
+          downloader = recipient.email;
+        }
+      }
+
+      const downloadedAt = new Date();
+
+      await this.prisma.$transaction(async (transaction) => {
+        await transaction.share.update({
+          where: {
+            id: shareId,
+          },
+          data: {
+            downloads: {
+              increment: 1,
+            },
+            lastDownloadedAt: downloadedAt,
+            lastDownloader: downloader,
+          },
+        });
+
+        if (fileId) {
+          await transaction.file.updateMany({
+            where: {
+              id: fileId,
+              shareId,
+            },
+            data: {
+              downloads: {
+                increment: 1,
+              },
+            },
+          });
+        }
+
+        if (isZip) {
+          await transaction.file.updateMany({
+            where: {
+              shareId,
+            },
+            data: {
+              downloads: {
+                increment: 1,
+              },
+            },
+          });
+        }
       });
     } catch (error) {
       this.logger.error(
-        `Failed to increment download count for share ${shareId}`,
+        `Failed to register download for share ${shareId}`,
         error instanceof Error ? error.stack : String(error),
       );
     }

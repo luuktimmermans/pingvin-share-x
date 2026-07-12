@@ -70,12 +70,17 @@ export class FileController {
       "Content-Disposition": contentDisposition(`${shareId}.zip`),
     });
 
-    void this.fileService.incrementDownloadCount(shareId);
+    const validRecipientId = getValidRecipientId(recipientId);
+
+    void this.fileService.registerDownload(shareId, {
+      recipientId: validRecipientId,
+      isZip: true,
+    });
 
     void this.fileService.notifyRecipientDownload(
       shareId,
       `${shareId}.zip`,
-      getValidRecipientId(recipientId),
+      validRecipientId,
     );
 
     return new StreamableFile(zipStream);
@@ -107,12 +112,17 @@ export class FileController {
     res.set(headers);
 
     if (isDownload) {
-      void this.fileService.incrementDownloadCount(shareId);
+      const validRecipientId = getValidRecipientId(recipientId);
+
+      void this.fileService.registerDownload(shareId, {
+        fileId,
+        recipientId: validRecipientId,
+      });
 
       void this.fileService.notifyRecipientDownload(
         shareId,
         file.metaData.name,
-        getValidRecipientId(recipientId),
+        validRecipientId,
       );
     }
 

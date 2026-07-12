@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "説明",
   "account.shares.table.visitors": "訪問者",
   "account.shares.table.downloads": "ダウンロード",
+  "account.shares.table.lastDownload": "最終ダウンロード",
+  "account.shares.table.lastDownloader": "最終ダウンロード者",
   "account.shares.table.expiresAt": "有効期限",
   "account.shares.table.createdAt": "作成日",
   "account.shares.table.size": "サイズ",

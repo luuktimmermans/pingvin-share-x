@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "Leírás",
   "account.shares.table.visitors": "Látogatók",
   "account.shares.table.downloads": "Letöltések",
+  "account.shares.table.lastDownload": "Utolsó letöltés",
+  "account.shares.table.lastDownloader": "Utolsó letöltő",
   "account.shares.table.expiresAt": "Lejár",
   "account.shares.table.createdAt": "Létrehozva",
   "account.shares.table.size": "Méret",

@@ -141,6 +141,8 @@ export default {
   "account.shares.table.description": "Descrição",
   "account.shares.table.visitors": "Visitantes",
   "account.shares.table.downloads": "Downloads",
+  "account.shares.table.lastDownload": "Último download",
+  "account.shares.table.lastDownloader": "Último downloader",
   "account.shares.table.expiresAt": "Expira em",
   "account.shares.table.createdAt": "Criada em",
   "account.shares.table.size": "Tamanho",
