@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "Joku",
   "shareRecipientsDescFallback": "Ei kuvausta",
   "shareRecipientsExpiresNeverFallback": "sisään: ei koskaan",
+  "shareDownloadAnonymousRecipient": "Anonyymi vierailija",
   "smtpDisabled": "SMTP on poistettu käytöstä",
   "emailServiceDisabled": "Sähköpostipalvelu on poistettu käytöstä",
   "testSubject": "Testisähköposti",

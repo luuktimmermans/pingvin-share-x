@@ -17,9 +17,9 @@ import useTranslate from "../../../hooks/useTranslate.hook";
 import { MyShare } from "../../../types/share.type";
 import { byteToHumanSizeString } from "../../../utils/fileSize.util";
 import toast from "../../../utils/toast.util";
-import showShareInformationsModal from "../../share/showShareInformationsModal";
 import showShareLinkModal from "../../account/showShareLinkModal";
 import { HoverTip } from "../../core/HoverTip";
+import showShareInformationsModal from "../../share/showShareInformationsModal";
 
 const ManageShareTable = ({
   shares,
@@ -59,6 +59,9 @@ const ManageShareTable = ({
               <FormattedMessage id="account.shares.table.visitors" />
             </th>
             <th>
+              <FormattedMessage id="account.shares.table.downloads" />
+            </th>
+            <th>
               <FormattedMessage id="account.shares.table.size" />
             </th>
             <th>
@@ -89,6 +92,7 @@ const ManageShareTable = ({
                     )}
                   </td>
                   <td>{share.views}</td>
+                  <td>{share.downloads}</td>
                   <td>{byteToHumanSizeString(share.size)}</td>
                   <td>
                     {moment(share.expiration).unix() === 0

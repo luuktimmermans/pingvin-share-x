@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "Biri",
   "shareRecipientsDescFallback": "Açıklama yok",
   "shareRecipientsExpiresNeverFallback": "içinde: asla",
+  "shareDownloadAnonymousRecipient": "Anonim bir ziyaretçi",
   "smtpDisabled": "SMTP devre dışı",
   "emailServiceDisabled": "E-posta servisi devre dışı",
   "testSubject": "Test e-postası",

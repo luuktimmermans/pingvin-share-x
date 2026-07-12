@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "کسی",
   "shareRecipientsDescFallback": "بدون توضیح",
   "shareRecipientsExpiresNeverFallback": "هرگز",
+  "shareDownloadAnonymousRecipient": "یک بازدیدکننده ناشناس",
   "smtpDisabled": "SMTP غیرفعال است",
   "emailServiceDisabled": "سرویس ایمیل غیرفعال است",
   "testSubject": "ایمیل آزمایشی",

@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "Iemand",
   "shareRecipientsDescFallback": "Geen beschrijving",
   "shareRecipientsExpiresNeverFallback": "in: nooit",
+  "shareDownloadAnonymousRecipient": "Een anonieme bezoeker",
   "smtpDisabled": "SMTP is uitgeschakeld",
   "emailServiceDisabled": "E-mailservice uitgeschakeld",
   "testSubject": "Test e-mail",

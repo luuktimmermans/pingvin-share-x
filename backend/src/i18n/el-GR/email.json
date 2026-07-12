@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "Κάποιος",
   "shareRecipientsDescFallback": "Χωρίς περιγραφή",
   "shareRecipientsExpiresNeverFallback": "σε: ποτέ",
+  "shareDownloadAnonymousRecipient": "Ένας ανώνυμος επισκέπτης",
   "smtpDisabled": "Το SMTP είναι απενεργοποιημένο",
   "emailServiceDisabled": "Η υπηρεσία email είναι απενεργοποιημένη",
   "testSubject": "Email δοκιμής",

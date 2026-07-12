@@ -1,12 +1,12 @@
-import { Inject, Injectable, Logger } from "@nestjs/common";
 import { CACHE_MANAGER } from "@nestjs/cache-manager";
+import { Inject, Injectable, Logger } from "@nestjs/common";
 import { Cache } from "cache-manager";
-import { LocalFileService } from "./local.service";
-import { S3FileService } from "./s3.service";
 import { ConfigService } from "src/config/config.service";
+import { EmailService } from "src/email/email.service";
 import { Readable } from "stream";
 import { PrismaService } from "../prisma/prisma.service";
-import { EmailService } from "src/email/email.service";
+import { LocalFileService } from "./local.service";
+import { S3FileService } from "./s3.service";
 
 const UPDATED_AT_THROTTLE_MS = 5 * 60 * 1000;
 const DOWNLOAD_NOTIFICATION_COOLDOWN_MS = 15 * 60 * 1000;
@@ -103,6 +103,24 @@ export class FileService {
     return await storageService.getZip(shareId);
   }
 
+  async incrementDownloadCount(shareId: string): Promise<void> {
+    try {
+      await this.prisma.share.update({
+        where: { id: shareId },
+        data: {
+          downloads: {
+            increment: 1,
+          },
+        },
+      });
+    } catch (error) {
+      this.logger.error(
+        `Failed to increment download count for share ${shareId}`,
+        error instanceof Error ? error.stack : String(error),
+      );
+    }
+  }
+
   async notifyRecipientDownload(
     shareId: string,
     fileName: string,
@@ -110,30 +128,47 @@ export class FileService {
   ) {
     try {
       if (
-        !recipientId ||
         !this.configService.get("smtp.enabled") ||
-        !this.configService.get("email.enableShareEmailRecipients") ||
         !this.configService.get("email.enableShareDownloadNotifications")
-      )
+      ) {
         return;
+      }
 
-      const notificationKey = `share-download-notification:${shareId}:${recipientId}`;
-      if (await this.cache.get<true>(notificationKey)) return;
+      const downloaderKey = recipientId || "anonymous";
+      const notificationKey =
+        `share-download-notification:${shareId}:${downloaderKey}:${fileName}`;
+
+      if (await this.cache.get<true>(notificationKey)) {
+        return;
+      }
 
       const share = await this.prisma.share.findUnique({
         where: { id: shareId },
         select: {
           id: true,
-          creator: { select: { email: true } },
+          creator: {
+            select: {
+              email: true,
+            },
+          },
           recipients: {
-            where: { id: recipientId },
-            select: { email: true },
+            select: {
+              id: true,
+              email: true,
+            },
           },
         },
       });
 
-      const recipient = share?.recipients[0];
-      if (!share?.creator?.email || !recipient) return;
+      if (!share?.creator?.email) {
+        return;
+      }
+
+      const recipientEmail = recipientId
+        ? share.recipients.find(
+            (recipient) => recipient.id === recipientId,
+          )?.email
+        : undefined;
 
       await this.cache.set(
         notificationKey,
@@ -145,12 +180,12 @@ export class FileService {
         share.creator.email,
         share.id,
         fileName,
-        recipient.email,
+        recipientEmail,
       );
-    } catch (e) {
+    } catch (error) {
       this.logger.error(
-        `Failed to notify recipient download for share ${shareId}`,
-        e instanceof Error ? e.stack : String(e),
+        `Failed to send download notification for share ${shareId}`,
+        error instanceof Error ? error.stack : String(error),
       );
     }
   }

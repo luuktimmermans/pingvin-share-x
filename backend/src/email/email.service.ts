@@ -5,8 +5,8 @@ import {
 } from "@nestjs/common";
 import { User } from "@prisma/client";
 import * as moment from "moment";
-import * as nodemailer from "nodemailer";
 import { I18nService } from "nestjs-i18n";
+import * as nodemailer from "nodemailer";
 import { ConfigService } from "src/config/config.service";
 
 @Injectable()
@@ -54,7 +54,7 @@ export class EmailService {
           this.logger.error(e);
           throw new InternalServerErrorException(this.i18n.t("email.sendFailed"));
         });
-  
+
   }
 
   async sendMailToShareRecipients(
@@ -106,9 +106,13 @@ export class EmailService {
     creatorEmail: string,
     shareId: string,
     fileName: string,
-    recipientEmail: string,
+    recipientEmail?: string,
   ) {
     const shareUrl = `${this.config.get("general.appUrl")}/s/${shareId}`;
+
+    const downloader =
+      recipientEmail?.trim() ||
+      this.i18n.t("email.shareDownloadAnonymousRecipient");
 
     await this.sendMail(
       creatorEmail,
@@ -116,7 +120,8 @@ export class EmailService {
       this.config
         .get("email.shareDownloadNotificationMessage")
         .replaceAll("\\n", "\n")
-        .replaceAll("{recipientEmail}", recipientEmail)
+        .replaceAll("{recipientEmail}", downloader)
+        .replaceAll("{downloader}", downloader)
         .replaceAll("{fileName}", fileName)
         .replaceAll("{shareUrl}", shareUrl),
     );

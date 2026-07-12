@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "Noen",
   "shareRecipientsDescFallback": "Ingen beskrivelse",
   "shareRecipientsExpiresNeverFallback": "i: aldri",
+  "shareDownloadAnonymousRecipient": "En anonym besøkende",
   "smtpDisabled": "SMTP er deaktivert",
   "emailServiceDisabled": "E-posttjeneste deaktivert",
   "testSubject": "Test-e-post",

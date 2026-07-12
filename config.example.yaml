@@ -124,13 +124,13 @@ email:
   #Subject of the email which gets sent to the share creator when a recipient downloads a file.
   shareDownloadNotificationSubject: Your file was downloaded
   #Message which gets sent to the share creator when a recipient downloads a file. Available variables:
-  # {recipientEmail} - The email of the recipient
+  # {downloader} - The downloader of the file
   # {fileName} - The downloaded file name
   # {shareUrl} - The URL of the share
   shareDownloadNotificationMessage: |-
     Hey!
 
-    {recipientEmail} downloaded {fileName} from your share: {shareUrl}
+    {downloader} downloaded {fileName} from your share: {shareUrl}
 
     Pingvin Share 🐧
 smtp:

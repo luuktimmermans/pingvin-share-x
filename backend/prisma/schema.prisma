@@ -88,6 +88,7 @@ model Share {
   uploadLocked  Boolean  @default(false)
   isZipReady    Boolean  @default(false)
   views         Int      @default(0)
+  downloads     Int      @default(0)
   expiration    DateTime
   description   String?
   removedReason String?

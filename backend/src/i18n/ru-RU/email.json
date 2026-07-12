@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "Кто-то",
   "shareRecipientsDescFallback": "Без описания",
   "shareRecipientsExpiresNeverFallback": "в: никогда",
+  "shareDownloadAnonymousRecipient": "Анонимный посетитель",
   "smtpDisabled": "SMTP отключен",
   "emailServiceDisabled": "Служба электронной почты отключена",
   "testSubject": "Тестовое письмо",

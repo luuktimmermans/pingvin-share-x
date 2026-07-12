@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "誰か",
   "shareRecipientsDescFallback": "説明なし",
   "shareRecipientsExpiresNeverFallback": "期限: なし",
+  "shareDownloadAnonymousRecipient": "匿名の訪問者",
   "smtpDisabled": "SMTPが無効になっています",
   "emailServiceDisabled": "メールサービスが無効になっています",
   "testSubject": "テストメール",

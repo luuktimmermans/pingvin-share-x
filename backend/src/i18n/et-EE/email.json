@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "Keegi",
   "shareRecipientsDescFallback": "Kirjeldus puudub",
   "shareRecipientsExpiresNeverFallback": "sisse: mitte kunagi",
+  "shareDownloadAnonymousRecipient": "Anonüümne",
   "smtpDisabled": "SMTP on keelatud",
   "emailServiceDisabled": "E-posti teenus on keelatud",
   "testSubject": "Test-e-kiri",

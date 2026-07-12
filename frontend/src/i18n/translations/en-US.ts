@@ -170,6 +170,7 @@ export default {
   "account.shares.table.name": "Name",
   "account.shares.table.description": "Description",
   "account.shares.table.visitors": "Visitors",
+  "account.shares.table.downloads": "Downloads",
   "account.shares.table.expiresAt": "Expires on",
   "account.shares.table.createdAt": "Created on",
   "account.shares.table.size": "Size",
@@ -304,6 +305,7 @@ export default {
   "admin.shares.table.id": "Share ID",
   "admin.shares.table.username": "Creator",
   "admin.shares.table.visitors": "Visitors",
+  "admin.shares.table.downloads": "Downloads",
   "admin.shares.table.expires": "Expires on",
   "admin.shares.table.deletes": "Deletes on",
 
@@ -568,7 +570,7 @@ export default {
   "admin.config.email.share-download-notification-message":
     "Download notification message",
   "admin.config.email.share-download-notification-message.description":
-    "Message which gets sent to the share creator when a recipient downloads a file. Available variables:\n {recipientEmail} - The email of the recipient\n {fileName} - The downloaded file name\n {shareUrl} - The URL of the share",
+    "Message which gets sent to the share creator when a recipient downloads a file. Available variables:\n {downloader} - The downloader of the file\n {fileName} - The downloaded file name\n {shareUrl} - The URL of the share",
   "admin.config.email.enable-email-verification": "Enable email verification",
   "admin.config.email.enable-email-verification.description":
     "Whether to require users to verify their email address before being able to sign in. This can only be enabled if SMTP is activated.",

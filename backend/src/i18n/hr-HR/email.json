@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "Netko",
   "shareRecipientsDescFallback": "Nema opisa",
   "shareRecipientsExpiresNeverFallback": "u: nikada",
+  "shareDownloadAnonymousRecipient": "Anoniman posjetitelj",
   "smtpDisabled": "SMTP je onemogućen",
   "emailServiceDisabled": "Usluga e-pošte onemogućena",
   "testSubject": "Testna e-pošta",

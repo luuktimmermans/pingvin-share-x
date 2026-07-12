@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "Någon",
   "shareRecipientsDescFallback": "Ingen beskrivning",
   "shareRecipientsExpiresNeverFallback": "löper ut: aldrig",
+  "shareDownloadAnonymousRecipient": "En anonym besökare",
   "smtpDisabled": "SMTP är inaktiverad",
   "emailServiceDisabled": "E-posttjänsten är inaktiverad",
   "testSubject": "Testmeddelande",

@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "شخص ما",
   "shareRecipientsDescFallback": "لا يوجد وصف",
   "shareRecipientsExpiresNeverFallback": "في: أبداً",
+  "shareDownloadAnonymousRecipient": "زائر مجهول",
   "smtpDisabled": "SMTP معطل",
   "emailServiceDisabled": "خدمة البريد الإلكتروني معطلة",
   "testSubject": "بريد إلكتروني تجريبي",

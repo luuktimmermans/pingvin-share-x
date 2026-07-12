@@ -16,18 +16,18 @@ import moment from "moment";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
-  TbPlusMinus,
   TbInfoCircle,
   TbLink,
   TbLock,
+  TbPlusMinus,
   TbTrash,
 } from "react-icons/tb";
 import { FormattedMessage } from "react-intl";
+import showShareLinkModal from "../../components/account/showShareLinkModal";
+import CenterLoader from "../../components/core/CenterLoader";
+import { HoverTip } from "../../components/core/HoverTip";
 import Meta from "../../components/Meta";
 import showShareInformationsModal from "../../components/share/showShareInformationsModal";
-import showShareLinkModal from "../../components/account/showShareLinkModal";
-import { HoverTip } from "../../components/core/HoverTip";
-import CenterLoader from "../../components/core/CenterLoader";
 import useConfig from "../../hooks/config.hook";
 import useTranslate from "../../hooks/useTranslate.hook";
 import shareService from "../../services/share.service";
@@ -84,6 +84,9 @@ const MyShares = () => {
                   <FormattedMessage id="account.shares.table.visitors" />
                 </th>
                 <th>
+                  <FormattedMessage id="account.shares.table.downloads" />
+                </th>
+                <th>
                   <FormattedMessage id="account.shares.table.expiresAt" />
                 </th>
                 <th></th>
@@ -117,6 +120,7 @@ const MyShares = () => {
                       share.views
                     )}
                   </td>
+                  <td>{share.downloads}</td>
                   <td>
                     {moment(share.expiration).unix() === 0 ? (
                       <FormattedMessage id="account.shares.table.expiry-never" />

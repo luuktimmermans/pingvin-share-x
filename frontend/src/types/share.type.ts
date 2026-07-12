@@ -48,6 +48,7 @@ export type ShareMetaData = {
 
 export type MyShare = Omit<Share, "hasPassword"> & {
   views: number;
+  downloads: number;
   createdAt: Date;
   security?: MyShareSecurity;
 };

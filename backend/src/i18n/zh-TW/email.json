@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "某人",
   "shareRecipientsDescFallback": "無描述",
   "shareRecipientsExpiresNeverFallback": "過期時間：從不",
+  "shareDownloadAnonymousRecipient": "匿名訪客",
   "smtpDisabled": "SMTP 已禁用",
   "emailServiceDisabled": "電子郵件服務已禁用",
   "testSubject": "測試郵件",

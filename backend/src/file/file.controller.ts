@@ -13,12 +13,12 @@ import {
 import { SkipThrottle } from "@nestjs/throttler";
 import * as contentDisposition from "content-disposition";
 import { Response } from "express";
+import * as mime from "mime-types";
 import { CreateShareGuard } from "src/share/guard/createShare.guard";
-import { StrictShareOwnerGuard } from "src/share/guard/strictShareOwner.guard";
 import { IdValidation } from "src/share/guard/shareIdValidation.guard";
+import { StrictShareOwnerGuard } from "src/share/guard/strictShareOwner.guard";
 import { FileService } from "./file.service";
 import { FileSecurityGuard } from "./guard/fileSecurity.guard";
-import * as mime from "mime-types";
 
 const VALID_ID_REGEX = /^[a-zA-Z0-9-]*={0,2}$/;
 
@@ -70,6 +70,8 @@ export class FileController {
       "Content-Disposition": contentDisposition(`${shareId}.zip`),
     });
 
+    void this.fileService.incrementDownloadCount(shareId);
+
     void this.fileService.notifyRecipientDownload(
       shareId,
       `${shareId}.zip`,
@@ -105,6 +107,8 @@ export class FileController {
     res.set(headers);
 
     if (isDownload) {
+      void this.fileService.incrementDownloadCount(shareId);
+
       void this.fileService.notifyRecipientDownload(
         shareId,
         file.metaData.name,

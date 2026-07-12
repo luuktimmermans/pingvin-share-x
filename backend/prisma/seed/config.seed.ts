@@ -205,7 +205,7 @@ export const configVariables = {
     shareDownloadNotificationMessage: {
       type: "text",
       defaultValue:
-        "Hey!\n\n{recipientEmail} downloaded {fileName} from your share: {shareUrl}\n\nPingvin Share 🐧",
+        "Hey!\n\n{downloader} downloaded {fileName} from your share: {shareUrl}\n\nPingvin Share 🐧",
     },
     enableEmailVerification: {
       type: "boolean",

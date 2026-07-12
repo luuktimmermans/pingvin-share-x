@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "Quelqu'un",
   "shareRecipientsDescFallback": "Pas de description",
   "shareRecipientsExpiresNeverFallback": "dans : jamais",
+  "shareDownloadAnonymousRecipient": "Un visiteur anonyme",
   "smtpDisabled": "SMTP est désactivé",
   "emailServiceDisabled": "Service d'email désactivé",
   "testSubject": "Email de test",

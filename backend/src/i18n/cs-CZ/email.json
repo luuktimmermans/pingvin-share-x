@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "Někdo",
   "shareRecipientsDescFallback": "Bez popisu",
   "shareRecipientsExpiresNeverFallback": "v: nikdy",
+  "shareDownloadAnonymousRecipient": "Anonymní návštěvník",
   "smtpDisabled": "SMTP je zakázáno",
   "emailServiceDisabled": "Emailová služba je zakázána",
   "testSubject": "Testovací email",

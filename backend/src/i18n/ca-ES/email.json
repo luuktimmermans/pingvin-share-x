@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "Algú",
   "shareRecipientsDescFallback": "Sense descripció",
   "shareRecipientsExpiresNeverFallback": "en: mai",
+  "shareDownloadAnonymousRecipient": "Un visitant anònim",
   "smtpDisabled": "SMTP està desactivat",
   "emailServiceDisabled": "Servei de correu electrònic desactivat",
   "testSubject": "Correu de prova",

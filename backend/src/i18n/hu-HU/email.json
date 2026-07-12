@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "Valaki",
   "shareRecipientsDescFallback": "Nincs leírás",
   "shareRecipientsExpiresNeverFallback": "lehetőség: soha",
+  "shareDownloadAnonymousRecipient": "Egy névtelen látogató",
   "smtpDisabled": "Az SMTP le van tiltva",
   "emailServiceDisabled": "E-mail szolgáltatás letiltva",
   "testSubject": "Teszt e-mail",

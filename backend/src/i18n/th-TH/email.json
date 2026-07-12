@@ -2,6 +2,7 @@
   "shareRecipientsCreatorFallback": "บางคน",
   "shareRecipientsDescFallback": "ไม่มีคำอธิบาย",
   "shareRecipientsExpiresNeverFallback": "ใน: ไม่เลย",
+  "shareDownloadAnonymousRecipient": "ผู้เยี่ยมชมที่ไม่ระบุตัวตน",
   "smtpDisabled": "ปิดใช้งาน SMTP",
   "emailServiceDisabled": "ปิดใช้งานบริการอีเมล",
   "testSubject": "อีเมลทดสอบ",
