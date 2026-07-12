@@ -4,6 +4,7 @@ import {
   Group,
   MediaQuery,
   Skeleton,
+  Stack,
   Table,
   Text,
 } from "@mantine/core";
@@ -92,7 +93,21 @@ const ManageShareTable = ({
                     )}
                   </td>
                   <td>{share.views}</td>
-                  <td>{share.downloads}</td>
+                  <td>
+                    <Stack spacing={4}>
+                      <Text>{share.downloads ?? 0}</Text>
+
+                      {share.files.length > 1 && (
+                        <Stack spacing={0}>
+                          {share.files.map((file) => (
+                            <Text key={file.id} size="xs" color="dimmed">
+                              {file.name}: {file.downloads ?? 0}
+                            </Text>
+                          ))}
+                        </Stack>
+                      )}
+                    </Stack>
+                  </td>
                   <td>{byteToHumanSizeString(share.size)}</td>
                   <td>
                     {moment(share.expiration).unix() === 0

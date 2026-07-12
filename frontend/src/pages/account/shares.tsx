@@ -130,7 +130,7 @@ const MyShares = () => {
                     <Stack spacing={4}>
                       <Text>{share.downloads ?? 0}</Text>
 
-                      {share.files.length > 0 && (
+                      {share.files.length > 1 && (
                         <Stack spacing={0}>
                           {share.files.map((file) => (
                             <Text key={file.id} size="xs" color="dimmed">
