@@ -4,9 +4,10 @@ import { GetServerSidePropsContext } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { FormattedMessage } from "react-intl";
 import { TbEdit, TbPlusMinus } from "react-icons/tb";
+import { FormattedMessage } from "react-intl";
 import Meta from "../../../components/Meta";
+import { HoverTip } from "../../../components/core/HoverTip";
 import DownloadAllButton from "../../../components/share/DownloadAllButton";
 import FileList from "../../../components/share/FileList";
 import showEnterPasswordModal from "../../../components/share/showEnterPasswordModal";
@@ -17,10 +18,9 @@ import useTranslate from "../../../hooks/useTranslate.hook";
 import useUser from "../../../hooks/user.hook";
 import shareService from "../../../services/share.service";
 import { MyShare, Share as ShareType } from "../../../types/share.type";
-import toast from "../../../utils/toast.util";
 import { byteToHumanSizeString } from "../../../utils/fileSize.util";
 import { getQueryString } from "../../../utils/router.util";
-import { HoverTip } from "../../../components/core/HoverTip";
+import toast from "../../../utils/toast.util";
 
 export function getServerSideProps(context: GetServerSidePropsContext) {
   return {
@@ -159,8 +159,8 @@ const Share = ({ shareId }: { shareId: string }) => {
       <Group position="apart" mb="lg">
         <Box style={{ maxWidth: "70%" }}>
           <Title order={3}>{share?.name || share?.id}</Title>
-          <Text size="sm">{share?.description}</Text>
-          {share?.files?.length > 0 && (
+          <Text size="sm">{share?.description}</Text>+{" "}
+          {(share?.files?.length ?? 0) > 0 && (
             <Text size="sm" color="dimmed" mt={5}>
               <FormattedMessage
                 id="share.fileCount"
@@ -201,7 +201,7 @@ const Share = ({ shareId }: { shareId: string }) => {
               </ActionIcon>
             </HoverTip>
           )}
-          {share?.files.length > 1 && (
+          {(share?.files.length ?? 0) > 1 && (
             <DownloadAllButton shareId={shareId} recipientId={recipientId} />
           )}
         </Group>
