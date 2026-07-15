@@ -159,7 +159,7 @@ const Share = ({ shareId }: { shareId: string }) => {
       <Group position="apart" mb="lg">
         <Box style={{ maxWidth: "70%" }}>
           <Title order={3}>{share?.name || share?.id}</Title>
-          <Text size="sm">{share?.description}</Text>+{" "}
+          <Text size="sm">{share?.description}</Text>
           {(share?.files?.length ?? 0) > 0 && (
             <Text size="sm" color="dimmed" mt={5}>
               <FormattedMessage
