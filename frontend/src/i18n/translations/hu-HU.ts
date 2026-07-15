@@ -427,7 +427,7 @@ export default {
   "admin.config.email.share-download-notification-subject": "Letöltési értesítés tárgya",
   "admin.config.email.share-download-notification-subject.description": "A megosztás létrehozójának fájlletöltéskor küldött e-mail tárgya.",
   "admin.config.email.share-download-notification-message": "Letöltési értesítés szövegezése",
-  "admin.config.email.share-download-notification-message.description": "A megosztás létrehozójának fájlletöltéskor küldött üzenet. Elérhető változók:\n{downloader} – a fájlt letöltő személy\n{fileName} – a letöltött fájl neve\n{shareUrl} – a megosztás URL-je",
+  "admin.config.email.share-download-notification-message.description": "A megosztás létrehozójának fájlletöltéskor küldött üzenet. Elérhető változók:\n {downloader} - A fájlt letöltő személy\n {fileName} - A letöltött fájl neve\n {shareUrl} - A megosztás URL-je",
   "admin.config.email.enable-email-verification": "E-mail cím megerősítésének engedélyezése",
   "admin.config.email.enable-email-verification.description": "Meghatározza, hogy a felhasználóknak szükséges-e megerősíteniük az e-mail címüket a bejelentkezés előtt. Ez a funkció csak akkor aktiválható, ha az SMTP be van kapcsolva.",
   "admin.config.email.verification-subject": "Megerősítő e-mail tárgya",

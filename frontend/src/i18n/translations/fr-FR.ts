@@ -427,7 +427,7 @@ export default {
   "admin.config.email.share-download-notification-subject": "Sujet de notification de téléchargement",
   "admin.config.email.share-download-notification-subject.description": "Objet de l'e-mail envoyé au créateur du partage lorsqu'un fichier est téléchargé.",
   "admin.config.email.share-download-notification-message": "Message de notification de téléchargement",
-  "admin.config.email.share-download-notification-message.description": "Message envoyé au créateur du partage lorsqu'un fichier est téléchargé. Variables disponibles :\n {downloader} - La personne qui télécharge le fichier\n {fileName} - Nom du fichier téléchargé\n {shareUrl} - URL du partage",
+  "admin.config.email.share-download-notification-message.description": "Message envoyé au créateur du partage lorsqu'un fichier est téléchargé. Variables disponibles :\n {downloader} - La personne qui télécharge le fichier\n {fileName} - Le nom du fichier téléchargé\n {shareUrl} - L'URL du partage",
   "admin.config.email.enable-email-verification": "Enable email verification",
   "admin.config.email.enable-email-verification.description": "Whether to require users to verify their email address before being able to sign in. This can only be enabled if SMTP is activated.",
   "admin.config.email.verification-subject": "Verification subject",
