@@ -16,6 +16,7 @@ import {
 import { useForm, yupResolver } from "@mantine/form";
 import { ModalsContextProps } from "@mantine/modals/lib/context";
 import moment from "moment";
+import { useState } from "react";
 import { FormattedMessage } from "react-intl";
 import * as yup from "yup";
 import { translateOutsideContext } from "../../hooks/useTranslate.hook";
@@ -26,7 +27,6 @@ import { byteToHumanSizeString } from "../../utils/fileSize.util";
 import toast from "../../utils/toast.util";
 import CopyTextField from "../upload/CopyTextField";
 import QRCode from "./QRCode";
-import { useState } from "react";
 
 const showShareInformationsModal = (
   modals: ModalsContextProps,
@@ -88,9 +88,8 @@ const Body = ({
     ? parseInt(currentShare.creator.shareSizeLimit)
     : maxShareSize;
 
-  const shareSizeRatio = resolvedMaxShareSize > 0
-    ? currentShare.size / resolvedMaxShareSize
-    : 0;
+  const shareSizeRatio =
+    resolvedMaxShareSize > 0 ? currentShare.size / resolvedMaxShareSize : 0;
 
   const formattedShareSize = byteToHumanSizeString(currentShare.size);
   const formattedMaxShareSize = byteToHumanSizeString(resolvedMaxShareSize);
@@ -152,6 +151,35 @@ const Body = ({
         </b>
         {formattedExpiration}
       </Text>
+      <Stack spacing={2}>
+        <Text size="sm">
+          <b>
+            <FormattedMessage id="account.shares.table.downloads" />:{" "}
+          </b>
+          {currentShare.downloads ?? 0}
+        </Text>
+
+        {currentShare.files.length > 1 && (
+          <Stack spacing={2}>
+            {currentShare.files.map((file) => (
+              <Group key={file.id} position="apart" spacing="xs" noWrap>
+                <Text size="xs" truncate title={file.name}>
+                  {file.name}
+                </Text>
+                <Text
+                  size="xs"
+                  sx={{
+                    flexShrink: 0,
+                    fontVariantNumeric: "tabular-nums",
+                  }}
+                >
+                  {file.downloads ?? 0}
+                </Text>
+              </Group>
+            ))}
+          </Stack>
+        )}
+      </Stack>
       <Divider />
       <CopyTextField link={link} toggleQR={handleToggleQR} />
       <Collapse in={showQR}>
@@ -174,14 +202,9 @@ const Body = ({
         )}
         <Progress
           value={shareSizeProgress}
-          label={
-            shareSizeRatio >= 0.1
-              ? formattedShareSize
-              : ""
-          }
+          label={shareSizeRatio >= 0.1 ? formattedShareSize : ""}
           style={{
-            width:
-              shareSizeRatio < 0.1 ? "70%" : "80%",
+            width: shareSizeRatio < 0.1 ? "70%" : "80%",
           }}
           size="xl"
           radius="xl"

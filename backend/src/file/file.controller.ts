@@ -73,7 +73,6 @@ export class FileController {
     const validRecipientId = getValidRecipientId(recipientId);
 
     void this.fileService.registerDownload(shareId, {
-      recipientId: validRecipientId,
       isZip: true,
     });
 
@@ -116,7 +115,6 @@ export class FileController {
 
       void this.fileService.registerDownload(shareId, {
         fileId,
-        recipientId: validRecipientId,
       });
 
       void this.fileService.notifyRecipientDownload(

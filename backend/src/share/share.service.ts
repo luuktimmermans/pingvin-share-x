@@ -214,7 +214,16 @@ export class ShareService {
       orderBy: {
         expiration: "desc",
       },
-      include: { files: true, creator: true, security: true, recipients: true },
+      include: {
+        files: {
+          orderBy: {
+            name: "asc",
+          },
+        },
+        creator: true,
+        security: true,
+        recipients: true
+      },
     });
 
     return shares.map((share) => this.transformShare(share));
@@ -234,7 +243,16 @@ export class ShareService {
       orderBy: {
         expiration: "desc",
       },
-      include: { recipients: true, files: true, security: true, creator: true },
+      include: {
+        recipients: true,
+        files: {
+          orderBy: {
+            name: "asc",
+          },
+        },
+        security: true,
+        creator: true
+    },
     });
 
     return shares.map((share) => this.transformShare(share));

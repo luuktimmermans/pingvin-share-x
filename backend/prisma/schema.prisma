@@ -89,8 +89,6 @@ model Share {
   isZipReady    Boolean  @default(false)
   views         Int      @default(0)
   downloads     Int      @default(0)
-  lastDownloadedAt DateTime?
-  lastDownloader   String?
   expiration    DateTime
   description   String?
   removedReason String?
@@ -140,7 +138,6 @@ model File {
   name      String
   size      String
   downloads Int      @default(0)
-
 
   shareId String
   share   Share  @relation(fields: [shareId], references: [id], onDelete: Cascade)

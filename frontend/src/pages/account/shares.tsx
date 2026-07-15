@@ -16,6 +16,7 @@ import moment from "moment";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
+  TbFiles,
   TbInfoCircle,
   TbLink,
   TbLock,
@@ -87,12 +88,6 @@ const MyShares = () => {
                   <FormattedMessage id="account.shares.table.downloads" />
                 </th>
                 <th>
-                  <FormattedMessage id="account.shares.table.lastDownload" />
-                </th>
-                <th>
-                  <FormattedMessage id="account.shares.table.lastDownloader" />
-                </th>
-                <th>
                   <FormattedMessage id="account.shares.table.expiresAt" />
                 </th>
                 <th></th>
@@ -102,8 +97,18 @@ const MyShares = () => {
               {shares.map((share) => (
                 <tr key={share.id}>
                   <td>
-                    <Group spacing="xs">
-                      {share.id}{" "}
+                    <Group spacing="xs" noWrap>
+                      {share.id}
+                      {share.files.length > 1 && (
+                        <TbFiles
+                          title={share.files
+                            .map(
+                              (file) => `${file.name}: ${file.downloads ?? 0}`,
+                            )
+                            .join("\n")}
+                        />
+                      )}
+
                       {share.security?.passwordProtected && (
                         <TbLock
                           color="orange"
@@ -126,27 +131,7 @@ const MyShares = () => {
                       share.views
                     )}
                   </td>
-                  <td>
-                    <Stack spacing={4}>
-                      <Text>{share.downloads ?? 0}</Text>
-
-                      {share.files.length > 1 && (
-                        <Stack spacing={0}>
-                          {share.files.map((file) => (
-                            <Text key={file.id} size="xs" color="dimmed">
-                              {file.name}: {file.downloads ?? 0}
-                            </Text>
-                          ))}
-                        </Stack>
-                      )}
-                    </Stack>
-                  </td>
-                  <td>
-                    {share.lastDownloadedAt
-                      ? moment(share.lastDownloadedAt).format("LLL")
-                      : "—"}
-                  </td>
-                  <td>{share.lastDownloader || "—"}</td>
+                  <td>{share.downloads ?? 0}</td>
                   <td>
                     {moment(share.expiration).unix() === 0 ? (
                       <FormattedMessage id="account.shares.table.expiry-never" />

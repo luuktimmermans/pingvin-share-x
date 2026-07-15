@@ -4,14 +4,13 @@ import {
   Group,
   MediaQuery,
   Skeleton,
-  Stack,
   Table,
   Text,
 } from "@mantine/core";
 import { useClipboard } from "@mantine/hooks";
 import { useModals } from "@mantine/modals";
 import moment from "moment";
-import { TbInfoCircle, TbLink, TbTrash } from "react-icons/tb";
+import { TbFiles, TbInfoCircle, TbLink, TbLock, TbTrash } from "react-icons/tb";
 import { FormattedMessage } from "react-intl";
 import useConfig from "../../../hooks/config.hook";
 import useTranslate from "../../../hooks/useTranslate.hook";
@@ -83,7 +82,27 @@ const ManageShareTable = ({
             ? skeletonRows
             : shares.map((share) => (
                 <tr key={share.id}>
-                  <td>{share.id}</td>
+                  <td>
+                    <Group spacing="xs" noWrap>
+                      {share.id}
+                      {share.files.length > 1 && (
+                        <TbFiles
+                          title={share.files
+                            .map(
+                              (file) => `${file.name}: ${file.downloads ?? 0}`,
+                            )
+                            .join("\n")}
+                        />
+                      )}
+
+                      {share.security?.passwordProtected && (
+                        <TbLock
+                          color="orange"
+                          title={t("account.shares.table.password-protected")}
+                        />
+                      )}
+                    </Group>
+                  </td>
                   <td>{share.name}</td>
                   <td>
                     {share.creator ? (
@@ -93,21 +112,7 @@ const ManageShareTable = ({
                     )}
                   </td>
                   <td>{share.views}</td>
-                  <td>
-                    <Stack spacing={4}>
-                      <Text>{share.downloads ?? 0}</Text>
-
-                      {share.files.length > 1 && (
-                        <Stack spacing={0}>
-                          {share.files.map((file) => (
-                            <Text key={file.id} size="xs" color="dimmed">
-                              {file.name}: {file.downloads ?? 0}
-                            </Text>
-                          ))}
-                        </Stack>
-                      )}
-                    </Stack>
-                  </td>
+                  <td>{share.downloads ?? 0}</td>
                   <td>{byteToHumanSizeString(share.size)}</td>
                   <td>
                     {moment(share.expiration).unix() === 0

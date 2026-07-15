@@ -107,32 +107,11 @@ export class FileService {
     shareId: string,
     options: {
       fileId?: string;
-      recipientId?: string;
       isZip?: boolean;
     } = {},
   ): Promise<void> {
     try {
-      const { fileId, recipientId, isZip = false } = options;
-
-      let downloader = "Anonymous";
-
-      if (recipientId) {
-        const recipient = await this.prisma.shareRecipient.findFirst({
-          where: {
-            id: recipientId,
-            shareId,
-          },
-          select: {
-            email: true,
-          },
-        });
-
-        if (recipient?.email) {
-          downloader = recipient.email;
-        }
-      }
-
-      const downloadedAt = new Date();
+      const { fileId, isZip = false } = options;
 
       await this.prisma.$transaction(async (transaction) => {
         await transaction.share.update({
@@ -143,8 +122,6 @@ export class FileService {
             downloads: {
               increment: 1,
             },
-            lastDownloadedAt: downloadedAt,
-            lastDownloader: downloader,
           },
         });
 
